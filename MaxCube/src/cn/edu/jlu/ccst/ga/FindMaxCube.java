@@ -83,7 +83,7 @@ public class FindMaxCube {
 		return result;
 	}
 
-	public void runga(int ng, int chromeSize, int popsize, int[] left, int[] right, FitnessFunction fitnessfun) {
+	public IChromosome runga(int ng, int chromeSize, int popsize, int[] left, int[] right, FitnessFunction fitnessfun) {
 		long startTime = System.currentTimeMillis();
 		int numEvolutions = ng;
 		Configuration gaConf = new DefaultConfiguration();
@@ -119,7 +119,7 @@ public class FindMaxCube {
 
 			if (percentEvolution > 0 && i % percentEvolution == 0) {
 				double fitness = fittest.getFitnessValue();
-				System.out.println("Currently fittest Chromosome has fitness " + fitness);
+//				System.out.println("Currently fittest Chromosome has fitness " + fitness);
 			}
 		}
 		// Print summary.
@@ -127,16 +127,19 @@ public class FindMaxCube {
 		IChromosome fittest = genotype.getFittestChromosome();
 		System.out.println("Fittest Chromosome has fitness " + (fittest.getFitnessValue()));
 
-		DecimalFormat myformat = new DecimalFormat("#0.00");
-		for (int i = 0; i < chromeSize; i++) {
+//		DecimalFormat myformat = new DecimalFormat("#0.00");
+//		for (int i = 0; i < chromeSize; i++) {
+//
+//			// System.out.println(myformat.format(((DoubleGene)fittest.getGene(i)).doubleValue()));
+//			System.out.print(myformat.format(fittest.getGene(i).getAllele()) + "	");
+//		}
 
-			// System.out.println(myformat.format(((DoubleGene)fittest.getGene(i)).doubleValue()));
-			System.out.print(myformat.format(fittest.getGene(i).getAllele()) + "	");
-		}
-		System.out.println();
+//		System.out.println();
 		long endTime = System.currentTimeMillis();
-		System.out.println("运行时间 " + (endTime - startTime) + "ms");
+		System.out.println("Running time: " + (endTime - startTime) + "ms");
 		System.out.println("sum counts:  " + MaxFunction.counts);
+		
+		return fittest;
 	}
 	
 	
@@ -170,7 +173,11 @@ public class FindMaxCube {
 		
 		double[][][] pt = se.readpressure(i, j, k, addr);
 		for (int a = 0; a <= 0; a++) {
-			se.runga(max_ite, chrom_size, pop_size, left, right, new MaxFunction(pt, window));
+			IChromosome fittest = se.runga(max_ite, chrom_size, pop_size, left, right, new MaxFunction(pt, window));
+			
+			System.out.print((int)(fittest.getGene(0).getAllele())+window[0] + "	");
+			System.out.print((int)(fittest.getGene(1).getAllele())+window[1] + "	");
+			System.out.println((int)(fittest.getGene(2).getAllele())+window[2] + "	");
 		}
 
 	}
