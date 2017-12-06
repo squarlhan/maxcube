@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneLayout;
 import javax.swing.SwingUtilities;
 
 import org.jgap.IChromosome;
@@ -189,14 +190,15 @@ public class FindMAX {
 		textField_8.setBounds(99, 85, 164, 26);
 		panel.add(textField_8);
 		
-		
-		JPanel panel_1 = new JPanel();
-		frmFindmax.getContentPane().add(panel_1);
-		frmFindmax.getContentPane().setLayout(new GridLayout(1, 1, 0, 0));
-		panel_1.setLayout(new BorderLayout(0, 0));
-//		panel_1.setLayout(null);		
 		JTextArea textArea = new JTextArea();
-		panel_1.add(textArea);
+//		JPanel panel_1 = new JPanel();
+//		panel_1.add(textArea);
+		JScrollPane panel_1 = new JScrollPane(textArea);
+		frmFindmax.getContentPane().add(panel_1);
+//		frmFindmax.getContentPane().setLayout(new GridLayout(1, 1, 0, 0));
+		panel_1.setLayout(new ScrollPaneLayout());
+//		panel_1.setLayout(null);		
+		
 		
 
 		
@@ -204,8 +206,8 @@ public class FindMAX {
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JTextAreaOutputStream out = new JTextAreaOutputStream (textArea);
-				System.setOut (new PrintStream (out));//设置输出重定向 
-				System.setErr(new PrintStream(out));//将错误输出也重定向,用于e.pritnStackTrace
+				System.setOut (new PrintStream (out));//璁剧疆杈撳嚭閲嶅畾鍚� 
+				System.setErr(new PrintStream(out));//灏嗛敊璇緭鍑轰篃閲嶅畾鍚�,鐢ㄤ簬e.pritnStackTrace
 				
 				FindMaxCube se = new FindMaxCube();
 
