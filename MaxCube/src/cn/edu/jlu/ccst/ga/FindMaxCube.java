@@ -119,7 +119,7 @@ public class FindMaxCube {
 
 			if (percentEvolution > 0 && i % percentEvolution == 0) {
 				double fitness = fittest.getFitnessValue();
-//				System.out.println("Currently fittest Chromosome has fitness " + fitness);
+				System.out.println("Currently fittest Chromosome has fitness " + fitness);
 			}
 		}
 		// Print summary.
@@ -175,9 +175,37 @@ public class FindMaxCube {
 		for (int a = 0; a <= 0; a++) {
 			IChromosome fittest = se.runga(max_ite, chrom_size, pop_size, left, right, new MaxFunction(pt, window));
 			
-			System.out.print((int)(fittest.getGene(0).getAllele())+window[0] + "	");
-			System.out.print((int)(fittest.getGene(1).getAllele())+window[1] + "	");
-			System.out.println((int)(fittest.getGene(2).getAllele())+window[2] + "	");
+			System.out.print((int)(fittest.getGene(0).getAllele()) + "	");
+			System.out.print((int)(fittest.getGene(1).getAllele()) + "	");
+			System.out.println((int)(fittest.getGene(2).getAllele()) + "	");
+			
+			System.out.print((int)(fittest.getGene(0).getAllele())+window[0]-1 + "	");
+			System.out.print((int)(fittest.getGene(1).getAllele()) + "	");
+			System.out.println((int)(fittest.getGene(2).getAllele()) + "	");
+			
+			System.out.print((int)(fittest.getGene(0).getAllele()) + "	");
+			System.out.print((int)(fittest.getGene(1).getAllele())+window[1]-1 + "	");
+			System.out.println((int)(fittest.getGene(2).getAllele()) + "	");
+			
+			System.out.print((int)(fittest.getGene(0).getAllele())+window[0]-1 + "	");
+			System.out.print((int)(fittest.getGene(1).getAllele())+window[1]-1 + "	");
+			System.out.println((int)(fittest.getGene(2).getAllele()) + "	");
+			
+			System.out.print((int)(fittest.getGene(0).getAllele()) + "	");
+			System.out.print((int)(fittest.getGene(1).getAllele()) + "	");
+			System.out.println((int)(fittest.getGene(2).getAllele())+window[2]-1 + "	");
+			
+			System.out.print((int)(fittest.getGene(0).getAllele())+window[0]-1 + "	");
+			System.out.print((int)(fittest.getGene(1).getAllele()) + "	");
+			System.out.println((int)(fittest.getGene(2).getAllele())+window[2]-1 + "	");
+			
+			System.out.print((int)(fittest.getGene(0).getAllele()) + "	");
+			System.out.print((int)(fittest.getGene(1).getAllele())+window[1]-1 + "	");
+			System.out.println((int)(fittest.getGene(2).getAllele())+window[2] -1+ "	");
+			
+			System.out.print((int)(fittest.getGene(0).getAllele())+window[0]-1 + "	");
+			System.out.print((int)(fittest.getGene(1).getAllele())+window[1]-1 + "	");
+			System.out.println((int)(fittest.getGene(2).getAllele())+window[2]-1 + "	");
 		}
 
 	}
