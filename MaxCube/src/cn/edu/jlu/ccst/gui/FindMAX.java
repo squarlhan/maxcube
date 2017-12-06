@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
 
 import org.jgap.IChromosome;
 
+import cn.edu.jlu.ccst.ga.ConnectedMaxFunction;
 import cn.edu.jlu.ccst.ga.FindMaxCube;
 import cn.edu.jlu.ccst.ga.MaxFunction;
 
@@ -227,7 +228,7 @@ public class FindMAX {
 				
 				double[][][] pt = se.readpressure(i, j, k, addr);
 				for (int a = 0; a <= 0; a++) {
-					IChromosome fittest = se.runga(max_ite, chrom_size, pop_size, left, right, new MaxFunction(pt, window));
+					IChromosome fittest = se.runga(max_ite, chrom_size, pop_size, left, right, new ConnectedMaxFunction(pt, window));
 					System.out.print((int)(fittest.getGene(0).getAllele()) + "	");
 					System.out.print((int)(fittest.getGene(1).getAllele()) + "	");
 					System.out.println((int)(fittest.getGene(2).getAllele()) + "	");
